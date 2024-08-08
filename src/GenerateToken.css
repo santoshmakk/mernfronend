@@ -1,0 +1,68 @@
+/* src/GenerateToken.css */
+
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .container2 form {
+    margin-bottom: 20px;
+  }
+  
+  .container2 input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .container2 button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .container2 .token-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .container2 .token-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .container2 .token-item span {
+    flex: 1;
+    word-break: break-all;
+  }
+  
+  .container2 .token-item button {
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .container2 {
+      padding: 10px;
+    }
+  
+    .container2 input, button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .container2 .token-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .container2 .token-item button {
+      margin: 5px 0;
+    }
+  }
+  
