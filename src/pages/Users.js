@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Logout from './Logout'; // Ensure the correct path
 
-require('dotenv').config();
-
 const Users = ({ token, setToken }) => {
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = async () => {
     try {
-      const res = await axios.get(process.env.SERVER_URL+'/api/auth/users', {
+      const res = await axios.get('https://mernserver-dlko.onrender.com/api/auth/users', {
         headers: {
           'x-auth-token': token,
         },

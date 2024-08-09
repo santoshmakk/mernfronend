@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-require('dotenv').config();
-
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,7 +9,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(process.env.SERVER_URL+'/api/auth/register', {
+      const res = await axios.post('https://mernserver-dlko.onrender.com/api/auth/register', {
         name,
         email,
         password,
