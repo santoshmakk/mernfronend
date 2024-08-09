@@ -8,7 +8,7 @@ const GenerateToken = ({ token, setToken }) => {
 
   const handleGenerateToken = async () => {
     try {
-      const res = await axios.post('https://mernserver-dlko.onrender.com/api/tokens/generate', { scopes }, {
+      const res = await axios.post('https://mernserver-d420.onrender.com/api/tokens/generate', { scopes }, {
         headers: { 'x-auth-token': token }
       });
       setTokens([...tokens, { token: res.data.token, scopes }]);
@@ -19,7 +19,7 @@ const GenerateToken = ({ token, setToken }) => {
 
   const handleDeleteToken = async (id) => {
     try {
-      await axios.delete(`https://mernserver-dlko.onrender.com/api/tokens/${id}`, {
+      await axios.delete(`https://mernserver-d420.onrender.com/api/tokens/${id}`, {
         headers: { 'x-auth-token': token }
       });
       setTokens(tokens.filter(t => t._id !== id));
@@ -31,7 +31,7 @@ const GenerateToken = ({ token, setToken }) => {
   useEffect(() => {
     const fetchTokens = async () => {
       try {
-        const res = await axios.get('https://mernserver-dlko.onrender.com/api/tokens', {
+        const res = await axios.get('https://mernserver-d420.onrender.com/api/tokens', {
           headers: { 'x-auth-token': token }
         });
         setTokens(res.data);

@@ -9,7 +9,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://mernserver-dlko.onrender.com/api/auth/register', {
+      const res = await axios.post('https://mernserver-d420.onrender.com/api/auth/register', {
         name,
         email,
         password,
