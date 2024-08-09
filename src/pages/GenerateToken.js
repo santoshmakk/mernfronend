@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+require('dotenv').config();
+
 const GenerateToken = ({ token, setToken }) => {
   const [scopes, setScopes] = useState([]);
   const [tokens, setTokens] = useState([]);
 
   const handleGenerateToken = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/tokens/generate', { scopes }, {
+      const res = await axios.post(process.env.SERVER_URL+'/api/tokens/generate', { scopes }, {
         headers: { 'x-auth-token': token }
       });
       setTokens([...tokens, { token: res.data.token, scopes }]);
@@ -19,7 +21,7 @@ const GenerateToken = ({ token, setToken }) => {
 
   const handleDeleteToken = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tokens/${id}`, {
+      await axios.delete(process.env.SERVER_URL+`/api/tokens/${id}`, {
         headers: { 'x-auth-token': token }
       });
       setTokens(tokens.filter(t => t._id !== id));
@@ -31,7 +33,7 @@ const GenerateToken = ({ token, setToken }) => {
   useEffect(() => {
     const fetchTokens = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/tokens', {
+        const res = await axios.get(process.env.SERVER_URL+'/api/tokens', {
           headers: { 'x-auth-token': token }
         });
         setTokens(res.data);

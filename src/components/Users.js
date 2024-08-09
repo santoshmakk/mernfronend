@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+require('dotenv').config();
+
 const Users = ({ token }) => {
   const [users, setUsers] = useState([]);
 
   const handleGetUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/users', {
+      const res = await axios.get(process.env.SERVER_URL+'/api/auth/users', {
         headers: {
           'x-auth-token': token,
         },
