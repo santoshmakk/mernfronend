@@ -6,7 +6,7 @@ const Users = ({ token }) => {
 
   const handleGetUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/users', {
+      const res = await axios.get('https://mernserver-dlko.onrender.com/api/auth/users', {
         headers: {
           'x-auth-token': token,
         },
